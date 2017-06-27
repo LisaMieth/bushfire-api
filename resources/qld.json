@@ -1,0 +1,195 @@
+{
+  "amoc": {
+    "source": {
+      "sender": "Australian Government Bureau of Meteorology",
+      "region": "Queensland",
+      "office": "QLDRO",
+      "copyright": "http://www.bom.gov.au/other/copyright.shtml",
+      "disclaimer": "http://www.bom.gov.au/other/disclaimer.shtml"
+    },
+    "identifier": "IDQ13015",
+    "issue-time-utc": "2017-05-15T18:30:00Z",
+    "issue-time-local": {
+      "time": "2017-05-16T04:30:00+10:00",
+      "timezone": "EST"
+    },
+    "sent-time": "2017-05-15T18:30:10Z",
+    "expiry-time": "2017-05-16T18:30:00Z",
+    "validity-bgn-time-local": {
+      "time": "2017-05-16T04:30:10+10:00",
+      "timezone": "EST"
+    },
+    "validity-end-time-local": {
+      "time": "2017-05-16T23:59:59+10:00",
+      "timezone": "EST"
+    },
+    "next-routine-issue-time-utc": "2017-05-16T06:00:00Z",
+    "next-routine-issue-time-local": {
+      "time": "2017-05-16T16:00:00+10:00",
+      "timezone": "EST"
+    }
+  },
+  "forecast": {
+    "area": [
+      {
+        "district": "Queensland",
+        "type": "region",
+        "forecast-period": {
+          "forecast": {
+            "type": "fire_danger_footer"
+          }
+        }
+      },
+      {
+        "district": "Peninsula",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "High",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Gulf Country",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Northern Goldfields and Upper Flinders",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "High",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "North Tropical Coast and Tablelands",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Herbert and Lower Burdekin",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Central Coast and Whitsundays",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Capricornia",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Central Highlands and Coalfields",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Central West",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "North West",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Channel Country",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Maranoa and Warrego",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Darling Downs and Granite Belt",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Wide Bay and Burnett",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Southeast Coast",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "amoc": {
+    "source": {
+      "sender": "Australian Government Bureau of Meteorology",
+      "region": "Northern Territory",
+      "office": "NTRO",
+      "copyright": "http://www.bom.gov.au/other/copyright.shtml",
+      "disclaimer": "http://www.bom.gov.au/other/disclaimer.shtml"
+    },
+    "identifier": "IDD10730",
+    "issue-time-utc": "2017-05-15T19:30:00Z",
+    "issue-time-local": {
+      "time": "2017-05-16T05:00:00+09:30",
+      "timezone": "CST"
+    },
+    "sent-time": "2017-05-15T19:30:06Z",
+    "expiry-time": "2017-05-16T19:30:00Z",
+    "validity-bgn-time-local": {
+      "time": "2017-05-16T05:00:07+09:30",
+      "timezone": "CST"
+    },
+    "validity-end-time-local": {
+      "time": "2017-05-16T23:59:59+09:30",
+      "timezone": "CST"
+    },
+    "next-routine-issue-time-utc": "2017-05-16T06:30:00Z",
+    "next-routine-issue-time-local": {
+      "time": "2017-05-16T16:00:00+09:30",
+      "timezone": "CST"
+    }
+  },
+  "forecast": {
+    "area": [
+      {
+        "district": "Northern Territory",
+        "type": "region",
+        "forecast-period": {
+          "forecast": {
+            "type": "fire_danger_footer"
+          }
+        }
+      },
+      {
+        "district": "Darwin and Adelaide River",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Northern Fire Protection Area",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Daly South",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Tiwi",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Arnhem West",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Arnhem East",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Katherine Fire Protection Area",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Carpentaria West",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Carpentaria East",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Gregory North West",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Gregory South East",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Barkly North",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Barkly South",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Alice Springs Fire Protection Area",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "High",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Simpson West",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "High",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Simpson East",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "High",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Lasseter West",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "High",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Lasseter East",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "High",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Tanami North",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "Low-Moderate",
+            "type": "fire_danger"
+          }
+        }
+      },
+      {
+        "district": "Tanami South",
+        "type": "fire-district",
+        "forecast-period": {
+          "forecast": {
+            "fire-danger": "High",
+            "type": "fire_danger"
+          }
+        }
+      }
+    ]
+  }
+}
