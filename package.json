@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js --exec babel-node --presets es2015,stage-2",
+    "start": "nodemon js/server/server.js --exec babel-node --presets es2015,stage-2",
     "lint": "eslint . --ext js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

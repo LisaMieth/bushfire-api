@@ -1,5 +1,9 @@
-const express = require('express');
-const { fetchData, fetchAreaData, fetchSuburbData } = require('../js/parser.js');
+import express from 'express';
+import {
+  fetchData,
+  fetchFireDistirctData,
+  fetchSuburbData,
+} from '../fb/handlers.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,7 +16,7 @@ app.get('/fire-danger/state/:state', async (req, res) => {
 
 app.get('/fire-danger/area/:area', async (req, res) => {
   const area = req.params.area;
-  const result = await fetchAreaData(area);
+  const result = await fetchFireDistirctData(area);
   res.send(result);
 });
 
@@ -33,4 +37,4 @@ app.get('/fire-danger/suburb/:suburb,:state', async (req, res) => {
 
 app.listen(port, () => {
   console.log(`Started on port ${port}`);
-})
+});
