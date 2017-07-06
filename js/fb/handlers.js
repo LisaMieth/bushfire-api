@@ -142,10 +142,9 @@ export async function fetchFireDistirctData(fireDistrict) {
 export async function fetchSuburbData(suburb, state) {
   const council = await getCouncil(suburb, state);
   const _state = state.toUpperCase();
-  console.log(council, _state);
+
   // Try and find fire distirct by council
   let fireDistrict = getFireDistrictFromCouncil(council, _state);
-  console.log(fireDistrict);
 
   // If no fire district found, try to find it by suburb
   if (!fireDistrict) fireDistrict = getFireDistirctFromSuburb(council, _state);

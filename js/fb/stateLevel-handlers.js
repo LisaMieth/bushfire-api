@@ -5,20 +5,21 @@
 */
 
 // Get fire distirct data for NSW
-async function getFireDistirctDataNSW(data, fireDistirct) {
-  return await data.FireDangerMap.District
+function getFireDistirctDataNSW(data, fireDistirct) {
+  return data.FireDangerMap.District
     .find(district => district.Name === fireDistirct);
 }
 
 // Get suburb data for NSW
-async function getSuburbDataNSW(fireDistirctData, fireDistirct, suburb) {
+function getSuburbDataNSW(fireDistirctData, fireDistirct, suburb) {
+  console.log(fireDistirctData);
   return {
     Suburb: suburb,
-    'Fire District': fireDistirct,
-    'Danger Level Today': fireDistirctData.DangerLevelToday,
-    'Danger Level Tomorrow': fireDistirctData.DangerLevelTomorrow,
-    'Fire Ban Today': fireDistirctData.FireBanToday,
-    'Fire Ban Tomorrow': fireDistirctData.FireBanTomorrow,
+    FireDistrict: fireDistirct,
+    DangerLevelToday: fireDistirctData.DangerLevelToday,
+    DangerLevelTomorrow: fireDistirctData.DangerLevelTomorrow,
+    FireBanToday: fireDistirctData.FireBanToday,
+    FireBanTomorrow: fireDistirctData.FireBanTomorrow,
   };
 }
 
@@ -33,8 +34,8 @@ function extractIssue({ issueFor, declaration, declareList }, fireDistirct) {
 }
 
 // Get fireDistirct data for VIC
-async function getFireDistirctDataVIC(data, fireDistirct) {
-  const results = await data.results;
+function getFireDistirctDataVIC(data, fireDistirct) {
+  const results = data.results;
   const resultToday = extractIssue(results[0], fireDistirct);
   const resultTomorrow = extractIssue(results[1], fireDistirct);
 
@@ -44,12 +45,12 @@ async function getFireDistirctDataVIC(data, fireDistirct) {
 }
 
 // Get suburb data for VIC
-async function getSuburbDataVIC(fireDistirctData, fireDistirct, suburb) {
+function getSuburbDataVIC(fireDistrictData, fireDistrict, suburb) {
   return {
     Suburb: suburb,
-    'Fire District': fireDistirct,
-    Today: fireDistirctData[fireDistirct][0],
-    Tomorrow: fireDistirctData[fireDistirct][1],
+    'Fire District': fireDistrict,
+    Today: fireDistrictData[fireDistrict][0],
+    Tomorrow: fireDistrictData[fireDistrict][1],
   };
 }
 
@@ -81,8 +82,8 @@ function extractFromDescription(description) {
 }
 
 // Get fireDistirct data for SA
-async function getFireDistirctDataSA(data, fireDistirct) {
-  const items = await data.rss.channel.item;
+function getFireDistirctDataSA(data, fireDistirct) {
+  const items = data.rss.channel.item;
   const item = items.find(element => element.title === fireDistirct);
   const result = extractFromDescription(item.description);
 
@@ -95,7 +96,7 @@ async function getFireDistirctDataSA(data, fireDistirct) {
 }
 
 // Get suburb data for SA
-async function getSuburbDataSA(fireDistirctData, fireDistirct, suburb) {
+function getSuburbDataSA(fireDistirctData, fireDistirct, suburb) {
   return {
     Suburb: suburb,
     ...fireDistirctData,
