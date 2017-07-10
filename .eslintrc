@@ -32,6 +32,9 @@
       "no-extra-boolean-cast": 0,
       "class-methods-use-this": 0,
       "brace-style": ["error", "stroustrup"],
+      "dot-notation": 0,
       "no-console": 1,
+      "func-names": 0,
+      "new-cap":0
     }
 }

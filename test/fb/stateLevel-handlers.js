@@ -1,36 +1,40 @@
 import expect from 'expect';
-
-import { extractIssue, fetchFireDistricts, fetchSuburbs } from '../../js/fb/stateLevel-handlers.js';
+import { fetchFireDistricts, fetchSuburbs } from '../../js/fb/stateLevel-handlers.js';
 
 describe('VIC', () => {
   const data = {
-    results:
-      [{
+    results: [
+      {
         issueFor: '06/07/2017',
         status: 'N',
         declaration: 'Today, Thu, 6 Jul 2017 is not currently a day of Total Fire Ban.',
-        declareList: [{
+        declareList: [
+          {
             name: 'Mallee',
             status: 'NO - RESTRICTIONS MAY APPLY',
           },
           {
             name: 'Central',
             status: 'NO - RESTRICTIONS MAY APPLY',
-          }],
+          },
+        ],
       },
       {
         issueFor: '07/07/2017',
         status: 'N',
         declaration: 'Tomorrow, Fri, 7 Jul 2017 is not currently a day of Total Fire Ban.',
-        declareList: [{
+        declareList: [
+          {
             name: 'Mallee',
             status: 'NO - RESTRICTIONS MAY APPLY',
           },
           {
             name: 'Central',
             status: 'NO - RESTRICTIONS MAY APPLY',
-          }],
-    }],
+          },
+        ],
+      },
+    ],
   };
 
   const fireDistrictData = {
@@ -122,7 +126,7 @@ describe('NSW', () => {
 describe('SA', () => {
   const data = {
     rss: {
-     channel: {
+      channel: {
         title: 'CFS Current Fire Bans for South Australia',
         link: 'http://cms.esau.sa.gov.au',
         description: 'CFS Fire Bans Feed for South Australia',

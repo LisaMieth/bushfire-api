@@ -5,14 +5,13 @@
 */
 
 // Get fire distirct data for NSW
-function getFireDistirctDataNSW(data, fireDistirct) {
+function getFireDistirctDataNSW(data, fireDistrict) {
   return data.FireDangerMap.District
-    .find(district => district.Name === fireDistirct);
+    .find(district => district.Name === fireDistrict || district.Name.includes(fireDistrict));
 }
 
 // Get suburb data for NSW
 function getSuburbDataNSW(fireDistirctData, fireDistirct, suburb) {
-  console.log(fireDistirctData);
   return {
     Suburb: suburb,
     FireDistrict: fireDistirct,

@@ -4,7 +4,7 @@ const councilsNSW = {
     'Port Macquarie-Hastings', 'Kempsey', 'Nambucca'],
   'Greater Hunter': ['Cessnock', 'Dungog', 'Lake Macquarie', 'Maitland', 'Muswellbrook', 'Newcastle',
     'Port Stephens', 'Singleton', 'Upper Hunter'],
-  'Greater Sydney Region': ['Ashfield', 'Auburn', 'Bankstown', 'The Hills', 'Blacktown', 'Blue Mountains', 'Botany Bay',
+  'Greater Sydney': ['Ashfield', 'Auburn', 'Bankstown', 'The Hills', 'Blacktown', 'Blue Mountains', 'Botany Bay',
     'Burwood', 'Camden', 'Campbelltown', 'Canada Bay', 'Canterbury', 'Fairfield', 'Gosford', 'Hawkesbury',
     'Holroyd', 'Hornsby', 'Hunters Hill', 'Hurstville', 'Kogarah', 'Ku-Ring-Gai', 'Lane Cove', 'Leichhardt',
     'Liverpool', 'Manly', 'Marrickville', 'Mosman', 'North Sydney', 'Parramatta', 'Penrith', 'Pittwater',
@@ -54,7 +54,7 @@ const councilsSA = {
   'Kangaroo Island': ['Kangaroo Island'],
   'Mid North': ['Clare and Gilbert Valleys', 'Goyder', 'Light', 'DC of Mallala', 'Northern Areas', 'Port Pirie', 'Wakefield'],
   'Yorke Peninsula': ['DC of Barunga West', 'DC of the Copper Coast', 'Yorke Peninsula'],
-  Murraylands: ['Karoonda East Murray', 'Mid Murray', 'Murray Bridge', 'Renmark Paringa', 'Southern Mallee', 'The Coorong'],
+  Murraylands: ['Karoonda East Murray', 'Mid Murray', 'Murray Bridge', 'Renmark Paringa', 'Southern Mallee'],
   Riverland: ['Loxton Waikerie', 'Mid Murray', 'Renmark Paringa', 'Berri Barmera'],
   'Upper South East': ['Coorong', 'DC of Tatiara'],
   'Lower South East': ['Grant', 'Kingston', 'DC of Kingston', 'Mount Gambier', 'Naracoorte and Lucindale', 'Robe', 'Wattle Range'],
@@ -69,10 +69,13 @@ const councilsSA = {
 const fallbackSA = {
   'Roxby Downs': ['Marree', 'William Creek', 'Oodnadatta'],
   Wakefield: ['Balaklava', 'Blyth', 'Snowtown', 'Owen', 'Hamley Bridge', 'Brinkworth', 'Lochiel', 'Port Wakefield'],
+  'DC of Barunga West': ['Alford', 'Bute', 'Tickera', 'Clements Gap'],
+  'DC of the Copper Coast': ['Paskeville'],
+  Goyder: ['Canowie Belt', 'Bower'],
 };
 
 export const fireDistricts = {
-  NSW: ['Far North Coast', 'North Coast', 'Greater Hunter', 'Greater Sydney Region', 'Illawara/Shoalhaven', 'Far South Coast',
+  NSW: ['Far North Coast', 'North Coast', 'Greater Hunter', 'Greater Sydney', 'Illawara/Shoalhaven', 'Far South Coast',
     'Monaro Alpine', 'ACT', 'Southern Ranges', 'Central Ranges', 'New England', 'Northern Slopes', 'North Western',
     'Upper Central West Plains', 'Lower Central West Plains', 'Southern Slopes', 'Eastern Riverina', 'Southern Riverina',
     'Northern Riverina', 'South Western', 'Far Western'],

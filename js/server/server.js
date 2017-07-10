@@ -1,7 +1,7 @@
 import express from 'express';
 import {
   fetchData,
-  fetchFireDistirctData,
+  fetchFireDistrictData,
   fetchSuburbData,
 } from '../fb/handlers.js';
 
@@ -14,9 +14,9 @@ app.get('/fire-danger/state/:state', async (req, res) => {
   res.send(result);
 });
 
-app.get('/fire-danger/area/:area', async (req, res) => {
-  const area = req.params.area;
-  const result = await fetchFireDistirctData(area);
+app.get('/fire-danger/fire-district/:fireDistrict', async (req, res) => {
+  const fireDistrict = req.params.fireDistrict;
+  const result = await fetchFireDistrictData(fireDistrict);
   res.send(result);
 });
 
