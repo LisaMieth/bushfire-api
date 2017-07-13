@@ -1,5 +1,11 @@
 import expect from 'expect';
-import { getCouncil, getFireDistrictFromCouncil, getFireDistrictFromSuburb } from '../../js/fb/handlers.js';
+import {
+  getCouncil,
+  getFireDistrictFromCouncil,
+  getFireDistrictFromSuburb,
+  fetchFireDistrictData,
+  fetchSuburbData,
+} from '../../js/fb/handlers.js';
 
 describe('getCouncil', () => {
   it('should return empty string for non-existing suburb', function (done) {
@@ -48,7 +54,7 @@ describe('getCouncil', () => {
     it('should find council for actual suburbs', function (done) {
       this.timeout(15000);
       const suburbs = ['Tea Tree Gully', 'Coorong', 'Marree', 'Bower', 'Bute'];
-      const expectedResult = ['Tea Tree Gully', 'Coorong District Council', 'Marree', 'Bower', 'Bute'];
+      const expectedResult = ['Tea Tree Gully', 'Coorong', 'Marree', 'Bower', 'Bute'];
 
       for (const suburb of suburbs) {
         const index = suburbs.indexOf(suburb);
@@ -107,5 +113,19 @@ describe('getFireDistrictFromSuburb', () => {
   it('should return undefined if no fire district can be found', () => {
     const actual = getFireDistrictFromSuburb('randomStub', 'SA');
     expect(actual).toEqual(null);
+  });
+});
+
+describe('fetchFireDistrictData', () => {
+  it('should return promise rejected with error if given wrong state', () => {
+    fetchFireDistrictData('Campbelltown', 'vic')
+      .catch(error => expect(error).toBeAn(Error));
+  });
+});
+
+describe('fetchSuburbData', () => {
+  it('should return error if cannot find matchin fire district', () => {
+    fetchSuburbData('notarealsuburb', 'nsw')
+      .catch(error => expect(error).toBeAn(Error));
   });
 });
