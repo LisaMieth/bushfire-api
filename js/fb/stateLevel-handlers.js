@@ -1,45 +1,50 @@
 /*
-* Functions extracting necessary information from parsed JSON data by fireDistirct and suburb.
+* Functions extracting necessary information from parsed JSON data by fireDistrict and suburb.
 * The data comes from the states' fire brigades, but it looks different for every state,
 * hence different methods for each state are necessary.
 */
 
-// Get fire distirct data for NSW
-function getFireDistirctDataNSW(data, fireDistrict) {
+// Get fire District data for NSW
+function getFireDistrictDataNSW(data, fireDistrict) {
   return data.FireDangerMap.District
     .find(district => district.Name === fireDistrict || district.Name.includes(fireDistrict));
 }
 
 // Get suburb data for NSW
-function getSuburbDataNSW(fireDistirctData, fireDistirct, suburb) {
+function getSuburbDataNSW(fireDistrictData, fireDistrict, suburb) {
   return {
     Suburb: suburb,
-    FireDistrict: fireDistirct,
-    DangerLevelToday: fireDistirctData.DangerLevelToday,
-    DangerLevelTomorrow: fireDistirctData.DangerLevelTomorrow,
-    FireBanToday: fireDistirctData.FireBanToday,
-    FireBanTomorrow: fireDistirctData.FireBanTomorrow,
+    FireDistrict: fireDistrict,
+    DangerLevelToday: fireDistrictData.DangerLevelToday,
+    DangerLevelTomorrow: fireDistrictData.DangerLevelTomorrow,
+    FireBanToday: fireDistrictData.FireBanToday,
+    FireBanTomorrow: fireDistrictData.FireBanTomorrow,
   };
+}
+
+// Get fire district data for ACT
+function getFireDistrictDataACT(data, fireDistrict) {
+  return getFireDistrictDataNSW(data, fireDistrict);
 }
 
 // FOR VIC DATA
 // Extract fire danger data from parsed data -> issue VIC
-function extractIssue({ issueFor, declaration, declareList }, fireDistirct) {
+function extractIssue({ issueFor, declaration, declareList }, fireDistrict) {
   return {
     issueFor,
     declaration,
-    status: declareList.find(item => item.name === fireDistirct).status,
+    status: declareList.find(item => item.name === fireDistrict).status,
   };
 }
 
-// Get fireDistirct data for VIC
-function getFireDistirctDataVIC(data, fireDistirct) {
+// Get fireDistrict data for VIC
+function getFireDistrictDataVIC(data, fireDistrict) {
   const results = data.results;
-  const resultToday = extractIssue(results[0], fireDistirct);
-  const resultTomorrow = extractIssue(results[1], fireDistirct);
+  const resultToday = extractIssue(results[0], fireDistrict);
+  const resultTomorrow = extractIssue(results[1], fireDistrict);
 
   return {
-    [fireDistirct]: [resultToday, resultTomorrow],
+    [fireDistrict]: [resultToday, resultTomorrow],
   };
 }
 
@@ -80,10 +85,10 @@ function extractFromDescription(description) {
   });
 }
 
-// Get fireDistirct data for SA
-function getFireDistirctDataSA(data, fireDistirct) {
+// Get fireDistrict data for SA
+function getFireDistrictDataSA(data, fireDistrict) {
   const items = data.rss.channel.item;
-  const item = items.find(element => element.title === fireDistirct);
+  const item = items.find(element => element.title === fireDistrict);
   const result = extractFromDescription(item.description);
 
   return {
@@ -95,18 +100,19 @@ function getFireDistirctDataSA(data, fireDistirct) {
 }
 
 // Get suburb data for SA
-function getSuburbDataSA(fireDistirctData, fireDistirct, suburb) {
+function getSuburbDataSA(fireDistrictData, fireDistrict, suburb) {
   return {
     Suburb: suburb,
-    ...fireDistirctData,
+    ...fireDistrictData,
   };
 }
 
-// Mapping for fireDistirct data functions
+// Mapping for fireDistrict data functions
 export const fetchFireDistricts = {
-  NSW: getFireDistirctDataNSW,
-  VIC: getFireDistirctDataVIC,
-  SA: getFireDistirctDataSA,
+  NSW: getFireDistrictDataNSW,
+  ACT: getFireDistrictDataACT,
+  VIC: getFireDistrictDataVIC,
+  SA: getFireDistrictDataSA,
 };
 
 // Mapping for suburb data function

@@ -15,7 +15,7 @@ app.get('/fire-danger/state/:state', async (req, res) => {
     res.send(result);
   }
   catch (error) {
-    res.status(404).send('This state is currently not supported');
+    res.status(404).send(error.message);
   }
 });
 

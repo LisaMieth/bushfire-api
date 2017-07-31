@@ -16,6 +16,19 @@ describe('/state', () => {
     });
   });
 
+  context('ACT', () => {
+    it('should send back json for valid request', (done) => {
+      request(app)
+        .get('/fire-danger/state/ACT')
+        .expect(200)
+        .expect(res => {
+          expect(res.type).toEqual('application/json');
+          expect(JSON.parse(res.text)).toInclude({ Name: 'ACT' });
+        })
+        .end(done);
+    });
+  });
+
   context('VIC', () => {
     it('should send back json for valid request', (done) => {
       request(app)
@@ -62,6 +75,16 @@ describe('/fire-district', () => {
     });
   });
 
+  context('ACT', () => {
+    it('should return proper data for valid fire district', (done) => {
+      request(app)
+        .get('/fire-danger/fire-district/gungahlin,act')
+        .expect(200)
+        .expect(res => expect(JSON.parse(res.text)).toInclude({ Name: 'ACT' }))
+        .end(done);
+    });
+  });
+
   context('VIC', () => {
     it('should return proper data for valid fire district', (done) => {
       request(app)
@@ -98,6 +121,16 @@ describe('/suburb', () => {
         .get('/fire-danger/suburb/katoomba,nsw')
         .expect(200)
         .expect(res => expect(JSON.parse(res.text)).toInclude({ Suburb: 'Katoomba', FireDistrict: 'Greater Sydney' }))
+        .end(done);
+    });
+  });
+
+  context('ACT', () => {
+    it('should return proper data for valid suburb', (done) => {
+      request(app)
+        .get('/fire-danger/suburb/braddon,act')
+        .expect(200)
+        .expect(res => expect(JSON.parse(res.text)).toInclude({ Name: 'ACT' }))
         .end(done);
     });
   });

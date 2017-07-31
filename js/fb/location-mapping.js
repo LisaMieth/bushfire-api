@@ -13,7 +13,7 @@ const councilsNSW = {
   'Illawara/Shoalhaven': ['Kiama', 'Shellharbour', 'Shoalhaven', 'Wingecarribee', 'Wollondilly', 'Wollongong'],
   'Far South Coast': ['Bega Valley', 'Eurobodalla'],
   'Monaro Alpine': ['Bombala', 'Cooma-Monaro', 'Snowy River'],
-  ACT: [],
+  ACT: ['Belconnen', 'Gunghalin', 'Inner South', 'North Canberra', 'Tuggeranong', 'Weston Creek', 'Woden Valley'],
   'Southern Ranges': ['Goulburn Mulwaree', 'Palerang', 'Queanbeyan', 'Upper Lachlan', 'Yass Valley'],
   'Central Ranges': ['Bathurst', 'Blayney', 'Cabonne', 'Cowra', 'Lithgow', 'Mid-Western', 'Oberon', 'Orange'],
   'New England': ['Armidale Dumaresq', 'Glen Innes Severn', 'Guyra', 'Tenterfield', 'Uralla', 'Walcha'],

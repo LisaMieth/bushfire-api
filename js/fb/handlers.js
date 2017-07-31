@@ -8,6 +8,7 @@ const googleMapsUrl = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIz
 // Mapping for Fire Services urls
 const urlMapping = {
   NSW: 'http://www.rfs.nsw.gov.au/feeds/fdrToban.xml',
+  ACT: 'http://www.rfs.nsw.gov.au/feeds/fdrToban.xml',
   VIC: 'https://data.emergency.vic.gov.au/Show?pageId=getFDRTFBJSON',
   SA: 'http://www.cfs.sa.gov.au/fire_bans_rss/index.jsp',
 };
@@ -105,8 +106,14 @@ export function getFireDistrictFromSuburb(suburb, state) {
 * @return {String} result as JSON
 */
 export async function fetchData(state) {
-  const data = await fetch(urlMapping[state.toUpperCase()]);
+  const _state = state.toUpperCase();
+  const url = urlMapping[_state];
+
+  if (!url) throw new Error('This state is currently not supported');
+
+  const data = await fetch(url);
   const result = await data.text();
+
 
   // Some fire services offer JSON feed
   try {
@@ -114,7 +121,11 @@ export async function fetchData(state) {
   }
   // Most only offer XMl feed
   catch (e) {
-    return await parseXml(result);
+    const parsed = await parseXml(result);
+
+    if (_state === 'ACT') return fetchFireDistricts[_state](parsed, _state);
+
+    return parsed;
   }
 }
 
@@ -125,14 +136,24 @@ export async function fetchData(state) {
 * @return {String} result as JSON
 */
 export async function fetchFireDistrictData(fireDistrict, state) {
-  // Find state the fire district is in
-  const stateByFireDistrict = Object.keys(fireDistricts).reduce((result, key) => {
-    // eslint-disable-next-line no-param-reassign
-    if (fireDistricts[key].indexOf(capitalise(fireDistrict)) !== -1) result = key;
-    return result;
-  }, null);
   const _state = state.toUpperCase();
 
+  // Special handling of ACT
+  if (_state === 'ACT') {
+    return await fetchData(state);
+  }
+
+  // Find state using fireDistrict
+  const stateByFireDistrict = Object.keys(fireDistricts).reduce((result, key) => {
+    if (fireDistricts[key].indexOf(capitalise(fireDistrict)) !== -1
+    || fireDistricts[key].indexOf(fireDistrict.toUpperCase()) !== -1) {
+      // eslint-disable-next-line no-param-reassign
+      result = key;
+    }
+    return result;
+  }, null);
+
+  // If states don't match, we can't find the fire districts
   if (_state !== stateByFireDistrict) throw new Error('State is not matching fire district');
 
   const data = await fetchData(state);
@@ -150,6 +171,11 @@ export async function fetchFireDistrictData(fireDistrict, state) {
 export async function fetchSuburbData(suburb, state) {
   const council = await getCouncil(suburb, state);
   const _state = state.toUpperCase();
+
+  // Special handling of ACT
+  if (_state === 'ACT') {
+    return await fetchData(state);
+  }
 
   // Try and find fire district by council or suburb
   const fireDistrict = getFireDistrictFromCouncil(council, _state)
