@@ -26,10 +26,10 @@ const parser = new xml2js.Parser({
 *
 * @return {Promise} promise that resolves to JSON data
 */
-async function parseXml(data) {
+export async function parseXml(data) {
   return new Promise((resolve, reject) => {
     parser.parseString(data, (err, res) => {
-      if (err) reject(err);
+      if (err) reject(new Error('Your request returned invalid XML.'));
       resolve(res);
     });
   });

@@ -5,6 +5,7 @@ import {
   getFireDistrictFromSuburb,
   fetchFireDistrictData,
   fetchSuburbData,
+  parseXml,
 } from '../../js/fb/handlers.js';
 
 describe('getCouncil', () => {
@@ -127,5 +128,25 @@ describe('fetchSuburbData', () => {
   it('should return error if cannot find matchin fire district', () => {
     fetchSuburbData('notarealsuburb', 'nsw')
       .catch(error => expect(error).toBeAn(Error));
+  });
+});
+
+describe('parseXml', (done) => {
+  it('should return error if XML response is invalid', () => {
+    const invalid = `<?xml version="1.0"?>
+    <FireDangerMap>
+      <District>
+        <Name>Far North Coast</Name>
+        <RegionNumber>1</RegionNumber>
+        <Councils>Ballina; Byron; Clarence Valley; Kyogle; Lismore; Richmond Valley; Tweed</Councils>
+        <DangerLevelToday>None</DangerLevelToday>
+        <DangerLevelTomorrow>None</DangerLevelTomorrow>
+        <FireBanToday>No</FireBanToday>
+        <FireBanTomorrow>No</FireBanTomorrow>
+      </District>`;
+
+    parseXml(invalid)
+      .catch(error => expect(error).toBeAn(Error))
+      .then(done);
   });
 });

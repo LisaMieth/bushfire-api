@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for fb/handlers.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">fb</a> handlers.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.51% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>66/67</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">97.44% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>38/39</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>16/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.25% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>56/57</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">70x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">94x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">80x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">94x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1308x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import 'isomorphic-fetch';
+import xml2js from 'xml2js';
+import { fireDistricts, councils, fallbacks } from './location-mapping.js';
+import { fetchFireDistricts, fetchSuburbs } from './stateLevel-handlers.js';
+&nbsp;
+const googleMapsUrl = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyD05woHcaU0DLw8_Yfb6U7fnL8JT8awhNA&amp;address=';
+&nbsp;
+// Mapping for Fire Services urls
+const urlMapping = {
+  NSW: 'http://www.rfs.nsw.gov.au/feeds/fdrToban.xml',
+  ACT: 'http://www.rfs.nsw.gov.au/feeds/fdrToban.xml',
+  VIC: 'https://data.emergency.vic.gov.au/Show?pageId=getFDRTFBJSON',
+  SA: 'http://www.cfs.sa.gov.au/fire_bans_rss/index.jsp',
+};
+&nbsp;
+const parser = new xml2js.Parser({
+  explicitRoot: true,
+  mergeAttrs: true,
+  explicitArray: false,
+  normalize: true,
+});
+&nbsp;
+/*
+* Parses the XML data to JSON
+* @param {String} data - XML data
+*
+* @return {Promise} promise that resolves to JSON data
+*/
+export async function parseXml(data) {
+  return new Promise((resolve, reject) =&gt; {
+    parser.parseString(data, (err, res) =&gt; {
+      if (err) reject(new Error('Your request returned invalid XML.'));
+      resolve(res);
+    });
+  });
+}
+&nbsp;
+// Capitalises first letter of every word
+const capitalise = str =&gt; (
+  str.replace(/\w\S*/g, (txt =&gt; txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()))
+);
+&nbsp;
+/*
+* Finds council for suburb by state via Google Maps API
+* @param {String} suburb
+* @params {String} state
+*
+* @return {String} council or empty if no results was returned
+*/
+export async function getCouncil(suburb, state) {
+  // Get Google Maps data
+  const response = await fetch(`${googleMapsUrl}${suburb},${state},au`);
+  const data = await response.json();
+&nbsp;
+  if (!data.results.length) return '';
+&nbsp;
+  // Find what should be the council in Google's response
+  const council = data.results[0].address_components.reduce((result, current) =&gt; {
+    // Admin area level 2 is council, but not always present
+    if (current.types.indexOf('administrative_area_level_2') !== -1) {
+      // eslint-disable-next-line no-param-reassign
+      result = current.short_name;
+    }
+    // Otherwise use admin area level 1 if that is not equal to the state
+    else <span class="missing-if-branch" title="if path not taken" >I</span>if (!result &amp;&amp; current.types.indexOf('administrative_area_level_1') !== -1 &amp;&amp; current.short_name !== state.toUpperCase()) {
+      // eslint-disable-next-line no-param-reassign
+<span class="cstat-no" title="statement not covered" >      result = current.short_name;</span>
+    }
+    return result;
+  }, '');
+&nbsp;
+  // Some results don't have any helpful administrative area level, first item is usually correct
+  return council || data.results[0].address_components[0].short_name;
+}
+&nbsp;
+// Find matching fire district for council
+export function getFireDistrictFromCouncil(council, state) {
+  const result = fireDistricts[state]
+    .find(fireDistrict =&gt; councils[state][fireDistrict]
+      .find(councilByDistrict =&gt;
+        council.includes(councilByDistrict) || councilByDistrict.includes(council))
+    );
+&nbsp;
+  return result || null;
+}
+&nbsp;
+// Try and find matching fire district for suburb
+export function getFireDistrictFromSuburb(suburb, state) {
+  const fallback = fallbacks[state];
+&nbsp;
+  if (!fallback) return null;
+&nbsp;
+  const council = Object.keys(fallback).find(key =&gt; fallback[key].indexOf(suburb) !== -1);
+  // No council found means we cannot find a matchin fire district
+  if (!council) return null;
+&nbsp;
+  const fireDistrict = getFireDistrictFromCouncil(council, state);
+&nbsp;
+  return fireDistrict;
+}
+&nbsp;
+/*
+* Fetches data by state from appropriate fire service
+* @param {String} state
+*
+* @return {String} result as JSON
+*/
+export async function fetchData(state) {
+  const _state = state.toUpperCase();
+  const url = urlMapping[_state];
+&nbsp;
+  if (!url) throw new Error('This state is currently not supported');
+&nbsp;
+  const data = await fetch(url);
+  const result = await data.text();
+&nbsp;
+&nbsp;
+  // Some fire services offer JSON feed
+  try {
+    return JSON.parse(result);
+  }
+  // Most only offer XMl feed
+  catch (e) {
+    const parsed = await parseXml(result);
+&nbsp;
+    if (_state === 'ACT') return fetchFireDistricts[_state](parsed, _state);
+&nbsp;
+    return parsed;
+  }
+}
+&nbsp;
+/*
+* Fetch data by fire district from appropriate fire service
+* @param {String} fireDistrict
+*
+* @return {String} result as JSON
+*/
+export async function fetchFireDistrictData(fireDistrict, state) {
+  const _state = state.toUpperCase();
+&nbsp;
+  // Special handling of ACT
+  if (_state === 'ACT') {
+    return await fetchData(state);
+  }
+&nbsp;
+  // Find state using fireDistrict
+  const stateByFireDistrict = Object.keys(fireDistricts).reduce((result, key) =&gt; {
+    if (fireDistricts[key].indexOf(capitalise(fireDistrict)) !== -1
+    || fireDistricts[key].indexOf(fireDistrict.toUpperCase()) !== -1) {
+      // eslint-disable-next-line no-param-reassign
+      result = key;
+    }
+    return result;
+  }, null);
+&nbsp;
+  // If states don't match, we can't find the fire districts
+  if (_state !== stateByFireDistrict) throw new Error('State is not matching fire district');
+&nbsp;
+  const data = await fetchData(state);
+&nbsp;
+  // Use appropriate method, depending on the state
+  return fetchFireDistricts[_state](data, capitalise(fireDistrict));
+}
+&nbsp;
+/*
+* Fetch data by suburb, state from appropriate fire service
+* @param {String} fireDistrict
+*
+* @return {String} result as JSON
+*/
+export async function fetchSuburbData(suburb, state) {
+  const council = await getCouncil(suburb, state);
+  const _state = state.toUpperCase();
+&nbsp;
+  // Special handling of ACT
+  if (_state === 'ACT') {
+    return await fetchData(state);
+  }
+&nbsp;
+  // Try and find fire district by council or suburb
+  const fireDistrict = getFireDistrictFromCouncil(council, _state)
+    || getFireDistrictFromSuburb(council, _state);
+&nbsp;
+  // If no fire district found, try to find it by suburb
+  if (!fireDistrict) throw new Error('Could not find a fire district for your suburb.');
+&nbsp;
+  const fireDistrictData = await fetchFireDistrictData(fireDistrict.toLowerCase(), _state);
+&nbsp;
+  return fetchSuburbs[_state](fireDistrictData, capitalise(fireDistrict), capitalise(suburb));
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Aug 03 2017 11:23:27 GMT+1000 (AEST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

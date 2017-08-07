@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for fb/location-mapping.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">fb</a> location-mapping.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>7/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/7</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const councilsNSW = {
+  'Far North Coast': ['Ballina', 'Byron', 'Clarence Valley', 'Kyogle', 'Lismore', 'Richmond Valley', 'Tweed'],
+  'North Coast': ['Bellingen', 'Coffs Harbour', 'Gloucester', 'Greater Taree', 'Great Lakes',
+    'Port Macquarie-Hastings', 'Kempsey', 'Nambucca'],
+  'Greater Hunter': ['Cessnock', 'Dungog', 'Lake Macquarie', 'Maitland', 'Muswellbrook', 'Newcastle',
+    'Port Stephens', 'Singleton', 'Upper Hunter'],
+  'Greater Sydney': ['Ashfield', 'Auburn', 'Bankstown', 'The Hills', 'Blacktown', 'Blue Mountains', 'Botany Bay',
+    'Burwood', 'Camden', 'Campbelltown', 'Canada Bay', 'Canterbury', 'Fairfield', 'Gosford', 'Hawkesbury',
+    'Holroyd', 'Hornsby', 'Hunters Hill', 'Hurstville', 'Kogarah', 'Ku-Ring-Gai', 'Lane Cove', 'Leichhardt',
+    'Liverpool', 'Manly', 'Marrickville', 'Mosman', 'North Sydney', 'Parramatta', 'Penrith', 'Pittwater',
+    'Randwick', 'Rockdale', 'Ryde', 'Strathfield', 'Sutherland', 'Sydney', 'Warringah', 'Waverley', 'Willoughby',
+    'Woollahra', 'Wyong'],
+  'Illawara/Shoalhaven': ['Kiama', 'Shellharbour', 'Shoalhaven', 'Wingecarribee', 'Wollondilly', 'Wollongong'],
+  'Far South Coast': ['Bega Valley', 'Eurobodalla'],
+  'Monaro Alpine': ['Bombala', 'Cooma-Monaro', 'Snowy River'],
+  ACT: ['Belconnen', 'Gunghalin', 'Inner South', 'North Canberra', 'Tuggeranong', 'Weston Creek', 'Woden Valley'],
+  'Southern Ranges': ['Goulburn Mulwaree', 'Palerang', 'Queanbeyan', 'Upper Lachlan', 'Yass Valley'],
+  'Central Ranges': ['Bathurst', 'Blayney', 'Cabonne', 'Cowra', 'Lithgow', 'Mid-Western', 'Oberon', 'Orange'],
+  'New England': ['Armidale Dumaresq', 'Glen Innes Severn', 'Guyra', 'Tenterfield', 'Uralla', 'Walcha'],
+  'Northern Slopes': ['Gunnedah', 'Gwydir', 'Inverell', 'Liverpool Plains', 'Tamworth'],
+  'North Western': ['Moree Plains', 'Narrabri', 'Walgett', 'Warrumbungle'],
+  'Upper Central West Plains': ['Bogan', 'Coonamble', 'Gilgandra', 'Warren'],
+  'Lower Central West Plains': ['Bland', 'Dubbo', 'Forbes', 'Lachlan', 'Narromine', 'Parkes', 'Temora', 'Weddin', 'Wellington'],
+  'Southern Slopes': ['Boorowa', 'Cootamundra', 'Gundagai', 'Harden', 'Tumbarumba', 'Tumut', 'Young'],
+  'Eastern Riverina': ['Albury', 'Coolamon', 'Greater Hume', 'Junee', 'Lockhart', 'Wagga Wagga'],
+  'Southern Riverina': ['Berrigan', 'Conargo', 'Corowa', 'Deniliquin', 'Jerilderie', 'Murray', 'Urana', 'Wakool'],
+  'Northern Riverina': ['Carrathool', 'Griffith', 'Hay', 'Leeton', 'Murrumbidgee', 'Narrandera'],
+  'South Western': ['Balranald', 'Wentworth'],
+  'Far Western': ['Bourke', 'Brewarrina', 'Broken Hill', 'Central Darling', 'Cobar'],
+};
+&nbsp;
+const councilsVIC = {
+  Mallee: ['Buloke', 'Gannawarra', 'Mildura', 'Swan Hill', 'Yarriambiack Shire North'],
+  Wimmera: ['Hindmarsh Shire', 'Horsham Rural City', 'Northern Grampians Shire', 'West Wimmera Shire', 'Yarriambiack'],
+  'South West': ['Ararat', 'Colac Otway', 'Corangamite', 'Glenelg', 'Moyne', 'Pyrenees', 'Southern Grampians', 'Warrnambool'],
+  'Northern Country': ['Campaspe', 'Greater Bendigo', 'Greater Shepparton', 'Loddon', 'Moira ', 'Strathbogie'],
+  'North Central': ['Central Goldfields', 'Lake Mountain Alpine Resort (Unincorporated)', 'Mitchell', 'Mount Alexander', 'Murrindindi'],
+  Central: ['Ballarat', 'Banyule', 'Bass Coast', 'Bayside', 'Boroondara', 'Brimbank', 'Cardinia', 'Casey', 'Darebin', 'Frankston',
+    'French-Elizabeth-Sandstone Islands (Unincorporated)', 'Glen Eira', 'Golden Plains', 'Greater Dandenong', 'Greater Geelong',
+    'Hepburn', 'Hobsons Bay', 'Hume', 'Kingston', 'Knox', 'Macedon Ranges', 'Manningham', 'Maribyrnong', 'Maroondah', 'Melbourne',
+    'Melton', 'Monash', 'Moonee Valley', 'Moorabool', 'Moreland', 'Mornington Peninsula', 'Nillumbik', 'Port Phillip',
+    'Queenscliffe', 'Stonnington', 'Surf Coast', 'Whitehorse', 'Whittlesea', 'Wyndham', 'Yarra', 'Yarra Ranges'],
+  'North East': ['Alpine', 'Benalla', 'Falls Creek', 'Indigo', 'Mansfield', 'Mount Buller', 'Mount Hotham Alpine Resort (Unincorporated)',
+    'Mount Stirling Alpine Resort (Unincorporated)', 'Towong', 'Wangaratta', 'Wodonga'],
+  'East Gippsland': ['East Gippsland'],
+  'West and South Gippsland': ['Baw Baw', 'Latrobe', 'Mount Baw Baw Alpine Resort (Unincorporated)', 'South Gippsland', 'Wellington'],
+};
+&nbsp;
+const councilsSA = {
+  'Adelaide Metropolitan': ['Adelaide', 'Burnside', 'Campbelltown', 'Charles Sturt', 'Holdfast Bay', 'Marion', 'Norwood Payneham and St Peters',
+    'Onkaparinga', 'Playford', 'Port Adelaide Enfield', 'Prospect', 'Salisbury', 'Tea Tree Gully', 'Unley', 'Walkerville', 'West Torrens'],
+  'Mount Lofty Ranges': ['Adelaide Hills', 'Alexandrina', 'Barossa', 'Burnside', 'Campbelltown', 'Gawler', 'Mitcham', 'DC of Mount Barker', 'Onkaparinga',
+    'Playford', 'Salisbury', 'Tea Tree Gully', 'Victor Harbor', 'DC of Yankalilla'],
+  'Kangaroo Island': ['Kangaroo Island'],
+  'Mid North': ['Clare and Gilbert Valleys', 'Goyder', 'Light', 'DC of Mallala', 'Northern Areas', 'Port Pirie', 'Wakefield'],
+  'Yorke Peninsula': ['DC of Barunga West', 'DC of the Copper Coast', 'Yorke Peninsula'],
+  Murraylands: ['Karoonda East Murray', 'Mid Murray', 'Murray Bridge', 'Renmark Paringa', 'Southern Mallee'],
+  Riverland: ['Loxton Waikerie', 'Mid Murray', 'Renmark Paringa', 'Berri Barmera'],
+  'Upper South East': ['Coorong', 'DC of Tatiara'],
+  'Lower South East': ['Grant', 'Kingston', 'DC of Kingston', 'Mount Gambier', 'Naracoorte and Lucindale', 'Robe', 'Wattle Range'],
+  Flinders: ['Flinders Ranges', 'Mount Remarkable', 'Orroroo Carrieton', 'Peterborough', 'Port Augusta'],
+  'North East Pastoral': ['Leigh Creek', 'Lyndhurst', 'Arkaroola', 'Moomba', 'Innamincka'],
+  'Eastern Eyre Peninsula': ['Cleve', 'Franklin Harbour', 'Kimba', 'Whyalla'],
+  'North West Pastoral': ['Coober Pedy', 'Roxby Downs', 'Woomera', 'Glendambo', 'Andamooka', 'Marla', 'Mintabie', 'Ernabella'],
+  'Lower Eyre Peninsula': ['Lower Eyre Peninsula', 'Tumby Bay', 'City of Port Lincoln'],
+  'West Coast': ['Ceduna', 'Elliston', 'Wudinna', 'Streaky Bay'],
+};
+&nbsp;
+const fallbackSA = {
+  'Roxby Downs': ['Marree', 'William Creek', 'Oodnadatta'],
+  Wakefield: ['Balaklava', 'Blyth', 'Snowtown', 'Owen', 'Hamley Bridge', 'Brinkworth', 'Lochiel', 'Port Wakefield'],
+  'DC of Barunga West': ['Alford', 'Bute', 'Tickera', 'Clements Gap'],
+  'DC of the Copper Coast': ['Paskeville'],
+  Goyder: ['Canowie Belt', 'Bower'],
+};
+&nbsp;
+export const fireDistricts = {
+  NSW: ['Far North Coast', 'North Coast', 'Greater Hunter', 'Greater Sydney', 'Illawara/Shoalhaven', 'Far South Coast',
+    'Monaro Alpine', 'ACT', 'Southern Ranges', 'Central Ranges', 'New England', 'Northern Slopes', 'North Western',
+    'Upper Central West Plains', 'Lower Central West Plains', 'Southern Slopes', 'Eastern Riverina', 'Southern Riverina',
+    'Northern Riverina', 'South Western', 'Far Western'],
+  VIC: ['Mallee', 'Wimmera', 'South West', 'Northern Country', 'North Central',
+    'Central', 'North East', 'East Gippsland', 'West and South Gippsland'],
+  SA: ['Adelaide Metropolitan', 'Mount Lofty Ranges', 'Kangaroo Island', 'Mid North', 'Yorke Peninsula', 'Murraylands',
+    'Riverland', 'Upper South East', 'Lower South East', 'Flinders', 'North East Pastoral', 'Eastern Eyre Peninsula',
+    'North West Pastoral', 'Lower Eyre Peninsula', 'West Coast'],
+};
+&nbsp;
+export const councils = {
+  NSW: councilsNSW,
+  VIC: councilsVIC,
+  SA: councilsSA,
+};
+&nbsp;
+export const fallbacks = {
+  SA: fallbackSA,
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Aug 03 2017 11:23:27 GMT+1000 (AEST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

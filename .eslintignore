@@ -1,1 +1,3 @@
 js/bom/
+.nyc_output/
+coverage/
