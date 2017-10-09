@@ -11,7 +11,7 @@
     "instrument": false
   },
   "scripts": {
-    "start": "nodemon js/server/server.js --exec babel-node --presets es2015,stage-2",
+    "start": "nodemon js/server/server.js --exec babel-node",
     "lint": "eslint . --ext js",
     "coverage": "nyc ./node_modules/mocha/bin/mocha --compilers js:babel-core/register ./test/**/*.js",
     "test:raw": "./node_modules/mocha/bin/mocha --compilers js:babel-core/register --recursive",
