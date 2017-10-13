@@ -90,7 +90,15 @@ describe('/fire-district', () => {
       request(app)
         .get('/fire-danger/fire-district/mallee,vic')
         .expect(200)
-        .expect(res => expect(JSON.parse(res.text)).toIncludeKeys(['Mallee']))
+        .expect(res => {
+          const parsed = JSON.parse(res.text);
+          expect(parsed).toIncludeKeys(['Mallee']);
+
+          parsed['Mallee'].forEach(item => {
+            expect(item.declareList.fireDistrict).toEqual('Mallee');
+            expect(item.declareList).toIncludeKeys(['fireBan', 'fireDistrict']);
+          });
+        })
         .end(done);
     });
   });
@@ -140,7 +148,14 @@ describe('/suburb', () => {
       request(app)
         .get('/fire-danger/suburb/richmond,vic')
         .expect(200)
-        .expect(res => expect(JSON.parse(res.text)).toInclude({ Suburb: 'Richmond', 'Fire District': 'Central' }))
+        .expect(res => {
+          const parsed = JSON.parse(res.text);
+          expect(parsed).toIncludeKey('Richmond');
+          parsed['Richmond'].forEach(item => {
+            expect(item.declareList.fireDistrict).toEqual('Central');
+            expect(item.declareList).toIncludeKeys(['fireBan', 'fireDistrict']);
+          });
+        })
         .end(done);
     });
   });

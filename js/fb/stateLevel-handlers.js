@@ -1,3 +1,5 @@
+import _mergeWith from 'lodash.mergewith';
+
 /*
 * Functions extracting necessary information from parsed JSON data by fireDistrict and suburb.
 * The data comes from the states' fire brigades, but it looks different for every state,
@@ -28,34 +30,46 @@ function getFireDistrictDataACT(data, fireDistrict) {
 }
 
 // FOR VIC DATA
-// Extract fire danger data from parsed data -> issue VIC
-function extractIssue({ issueFor, declaration, declareList }, fireDistrict) {
-  return {
-    issueFor,
-    declaration,
-    status: declareList.find(item => item.name === fireDistrict).status,
-  };
+// Merge FireBan and DangerRating data by date
+function mergeItems(data, fireDistrict) {
+  const cache = {};
+
+  return data.reduce((result, current) => {
+    const { issueFor: date } = current;
+
+    if (!cache[date]) {
+      cache[date] = current;
+      return result;
+    }
+
+    // eslint-disable-next-line consistent-return
+    const mergedItem = _mergeWith(cache[date], current, (value, src) => {
+      if (Array.isArray(value)) {
+        const valueMatch = value.find(item => item.name === fireDistrict);
+        const srcMatch = src.find(item => item.name === fireDistrict);
+        return {
+          fireDistrict: valueMatch.name,
+          fireBan: valueMatch.status,
+          dangerRating: srcMatch.status,
+        };
+      }
+    });
+
+    result.push(mergedItem);
+    return result;
+  }, []);
 }
 
 // Get fireDistrict data for VIC
 function getFireDistrictDataVIC(data, fireDistrict) {
   const results = data.results;
-  const resultToday = extractIssue(results[0], fireDistrict);
-  const resultTomorrow = extractIssue(results[1], fireDistrict);
-
-  return {
-    [fireDistrict]: [resultToday, resultTomorrow],
-  };
+  const merged = mergeItems(results, fireDistrict);
+  return { [fireDistrict]: merged };
 }
 
 // Get suburb data for VIC
 function getSuburbDataVIC(fireDistrictData, fireDistrict, suburb) {
-  return {
-    Suburb: suburb,
-    'Fire District': fireDistrict,
-    Today: fireDistrictData[fireDistrict][0],
-    Tomorrow: fireDistrictData[fireDistrict][1],
-  };
+  return { [suburb]: fireDistrictData[fireDistrict] };
 }
 
 // FOR SA DATA

@@ -6,7 +6,6 @@ describe('VIC', () => {
     results: [
       {
         issueFor: '06/07/2017',
-        status: 'N',
         declaration: 'Today, Thu, 6 Jul 2017 is not currently a day of Total Fire Ban.',
         declareList: [
           {
@@ -21,7 +20,6 @@ describe('VIC', () => {
       },
       {
         issueFor: '07/07/2017',
-        status: 'N',
         declaration: 'Tomorrow, Fri, 7 Jul 2017 is not currently a day of Total Fire Ban.',
         declareList: [
           {
@@ -31,6 +29,36 @@ describe('VIC', () => {
           {
             name: 'Central',
             status: 'NO - RESTRICTIONS MAY APPLY',
+          },
+        ],
+      },
+      {
+        issueFor: '06/07/2017',
+        status: 'N',
+        declaration: 'Today, Thu, 6 Jul 2017 is not currently a day of Total Fire Ban.',
+        declareList: [
+          {
+            name: 'Mallee',
+            status: 'NO FORECAST',
+          },
+          {
+            name: 'Central',
+            status: 'NO FORECAST',
+          },
+        ],
+      },
+      {
+        issueFor: '07/07/2017',
+        status: 'N',
+        declaration: 'Tomorrow, Fri, 7 Jul 2017 is not currently a day of Total Fire Ban.',
+        declareList: [
+          {
+            name: 'Mallee',
+            status: 'NO FORECAST',
+          },
+          {
+            name: 'Central',
+            status: 'NO FORECAST',
           },
         ],
       },
@@ -41,28 +69,35 @@ describe('VIC', () => {
     Central: [
       {
         issueFor: '06/07/2017',
+        status: 'N',
         declaration: 'Today, Thu, 6 Jul 2017 is not currently a day of Total Fire Ban.',
-        status: 'NO - RESTRICTIONS MAY APPLY',
+        declareList: {
+          fireDistrict: 'Central',
+          fireBan: 'NO - RESTRICTIONS MAY APPLY',
+          dangerRating: 'NO FORECAST',
+        },
       },
       {
         issueFor: '07/07/2017',
+        status: 'N',
         declaration: 'Tomorrow, Fri, 7 Jul 2017 is not currently a day of Total Fire Ban.',
-        status: 'NO - RESTRICTIONS MAY APPLY',
+        declareList: {
+          fireDistrict: 'Central',
+          fireBan: 'NO - RESTRICTIONS MAY APPLY',
+          dangerRating: 'NO FORECAST',
+        },
       },
     ],
   };
+
+
   it('should return fire district data in appropriate format', () => {
     const actual = fetchFireDistricts['VIC'](data, 'Central');
     expect(actual).toEqual(fireDistrictData);
   });
 
   it('should return suburb data in appropriate format', () => {
-    const expected = {
-      Suburb: 'Ballarat North',
-      'Fire District': 'Central',
-      Today: fireDistrictData['Central'][0],
-      Tomorrow: fireDistrictData['Central'][1],
-    };
+    const expected = { 'Ballarat North': fireDistrictData['Central'] };
     const actual = fetchSuburbs['VIC'](fireDistrictData, 'Central', 'Ballarat North');
     expect(actual).toEqual(expected);
   });
