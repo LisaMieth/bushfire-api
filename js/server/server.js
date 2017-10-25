@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 app.get('/fire-danger/state/:state', async (req, res) => {
   try {
     const state = req.params.state;
-    const result = await fetchData(state);
+    const result = await fetchData(state.toUpperCase());
     res.send(result);
   }
   catch (error) {
@@ -23,7 +23,7 @@ app.get('/fire-danger/fire-district/:fireDistrict,:state', async (req, res) => {
   const { state, fireDistrict } = req.params;
 
   try {
-    const result = await fetchFireDistrictData(fireDistrict, state);
+    const result = await fetchFireDistrictData(fireDistrict, state.toUpperCase());
     res.send(result);
   }
   catch (error) {
@@ -34,7 +34,7 @@ app.get('/fire-danger/fire-district/:fireDistrict,:state', async (req, res) => {
 app.get('/fire-danger/suburb/:suburb,:state', async (req, res) => {
   const { state, suburb } = req.params;
   try {
-    const result = await fetchSuburbData(suburb, state);
+    const result = await fetchSuburbData(suburb, state.toUpperCase());
     res.send(result);
   }
   catch (error) {

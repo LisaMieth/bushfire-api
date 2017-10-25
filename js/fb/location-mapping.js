@@ -13,7 +13,7 @@ const councilsNSW = {
   'Illawara/Shoalhaven': ['Kiama', 'Shellharbour', 'Shoalhaven', 'Wingecarribee', 'Wollondilly', 'Wollongong'],
   'Far South Coast': ['Bega Valley', 'Eurobodalla'],
   'Monaro Alpine': ['Bombala', 'Cooma-Monaro', 'Snowy River'],
-  ACT: ['Belconnen', 'Gunghalin', 'Inner South', 'North Canberra', 'Tuggeranong', 'Weston Creek', 'Woden Valley'],
+  //ACT: ['Belconnen', 'Gunghalin', 'Inner South', 'North Canberra', 'Tuggeranong', 'Weston Creek', 'Woden Valley'],
   'Southern Ranges': ['Goulburn Mulwaree', 'Palerang', 'Queanbeyan', 'Upper Lachlan', 'Yass Valley'],
   'Central Ranges': ['Bathurst', 'Blayney', 'Cabonne', 'Cowra', 'Lithgow', 'Mid-Western', 'Oberon', 'Orange'],
   'New England': ['Armidale Dumaresq', 'Glen Innes Severn', 'Guyra', 'Tenterfield', 'Uralla', 'Walcha'],
@@ -33,7 +33,7 @@ const councilsVIC = {
   Mallee: ['Buloke', 'Gannawarra', 'Mildura', 'Swan Hill', 'Yarriambiack Shire North'],
   Wimmera: ['Hindmarsh Shire', 'Horsham Rural City', 'Northern Grampians Shire', 'West Wimmera Shire', 'Yarriambiack'],
   'South West': ['Ararat', 'Colac Otway', 'Corangamite', 'Glenelg', 'Moyne', 'Pyrenees', 'Southern Grampians', 'Warrnambool'],
-  'Northern Country': ['Campaspe', 'Greater Bendigo', 'Greater Shepparton', 'Loddon', 'Moira ', 'Strathbogie'],
+  'Northern Country': ['Campaspe', 'Greater Bendigo', 'Greater Shepparton', 'Loddon', 'Moira', 'Strathbogie'],
   'North Central': ['Central Goldfields', 'Lake Mountain Alpine Resort (Unincorporated)', 'Mitchell', 'Mount Alexander', 'Murrindindi'],
   Central: ['Ballarat', 'Banyule', 'Bass Coast', 'Bayside', 'Boroondara', 'Brimbank', 'Cardinia', 'Casey', 'Darebin', 'Frankston',
     'French-Elizabeth-Sandstone Islands (Unincorporated)', 'Glen Eira', 'Golden Plains', 'Greater Dandenong', 'Greater Geelong',
@@ -57,7 +57,7 @@ const councilsSA = {
   Murraylands: ['Karoonda East Murray', 'Mid Murray', 'Murray Bridge', 'Renmark Paringa', 'Southern Mallee'],
   Riverland: ['Loxton Waikerie', 'Mid Murray', 'Renmark Paringa', 'Berri Barmera'],
   'Upper South East': ['Coorong', 'DC of Tatiara'],
-  'Lower South East': ['Grant', 'Kingston', 'DC of Kingston', 'Mount Gambier', 'Naracoorte and Lucindale', 'Robe', 'Wattle Range'],
+  'Lower South East': ['Grant', 'Kingston', 'DC of Kingston', 'Mount Gambier', 'Naracoorte Lucindale', 'Robe', 'Wattle Range'],
   Flinders: ['Flinders Ranges', 'Mount Remarkable', 'Orroroo Carrieton', 'Peterborough', 'Port Augusta'],
   'North East Pastoral': ['Leigh Creek', 'Lyndhurst', 'Arkaroola', 'Moomba', 'Innamincka'],
   'Eastern Eyre Peninsula': ['Cleve', 'Franklin Harbour', 'Kimba', 'Whyalla'],
@@ -66,6 +66,7 @@ const councilsSA = {
   'West Coast': ['Ceduna', 'Elliston', 'Wudinna', 'Streaky Bay'],
 };
 
+// SA's awesome suburbs for which Google can't find a council
 const fallbackSA = {
   'Roxby Downs': ['Marree', 'William Creek', 'Oodnadatta'],
   Wakefield: ['Balaklava', 'Blyth', 'Snowtown', 'Owen', 'Hamley Bridge', 'Brinkworth', 'Lochiel', 'Port Wakefield'],
@@ -76,7 +77,7 @@ const fallbackSA = {
 
 export const fireDistricts = {
   NSW: ['Far North Coast', 'North Coast', 'Greater Hunter', 'Greater Sydney', 'Illawara/Shoalhaven', 'Far South Coast',
-    'Monaro Alpine', 'ACT', 'Southern Ranges', 'Central Ranges', 'New England', 'Northern Slopes', 'North Western',
+    'Monaro Alpine', /*'ACT', */ 'Southern Ranges', 'Central Ranges', 'New England', 'Northern Slopes', 'North Western',
     'Upper Central West Plains', 'Lower Central West Plains', 'Southern Slopes', 'Eastern Riverina', 'Southern Riverina',
     'Northern Riverina', 'South Western', 'Far Western'],
   VIC: ['Mallee', 'Wimmera', 'South West', 'Northern Country', 'North Central',

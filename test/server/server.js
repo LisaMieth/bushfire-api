@@ -117,7 +117,7 @@ describe('/fire-district', () => {
     request(app)
       .get('/fire-danger/fire-district/mallee,sa')
       .expect(404)
-      .expect(res => expect(res.error.text).toEqual('State is not matching fire district'))
+      .expect(res => expect(res.error.text).toEqual('Cannot find fire district.'))
       .end(done);
   });
 });
