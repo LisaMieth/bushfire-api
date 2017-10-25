@@ -12,7 +12,7 @@ async function testAreas(state) {
     const councilsByArea = councils[state][area];
     for (const council of councilsByArea) {
       const data = await getCouncil(council, state);
-      console.log(council, data);
+      if (council !== data)  console.log(council, data);
     }
   }
 }

@@ -35,6 +35,12 @@ export async function parseXml(data) {
   });
 }
 
+async function getGoogleMapsData(suburb, state) {
+  // Get Google Maps data
+  const response = await fetch(`${googleMapsUrl}${suburb},${state},au`);
+  return await response.json();
+}
+
 // Capitalises first letter of every word
 const capitalise = str => (
   str.replace(/\w\S*/g, (txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()))
@@ -48,9 +54,8 @@ const capitalise = str => (
 * @return {String} council or empty if no results was returned
 */
 export async function getCouncil(suburb, state) {
-  // Get Google Maps data
-  const response = await fetch(`${googleMapsUrl}${suburb},${state},au`);
-  const data = await response.json();
+
+  const data = await getGoogleMapsData(suburb, state);
 
   if (!data.results.length) return '';
 
@@ -73,30 +78,38 @@ export async function getCouncil(suburb, state) {
   return council || data.results[0].address_components[0].short_name;
 }
 
+function canFindFireDistrict(fireDistrict, state) {
+  // Find state using fireDistrict
+  const stateByFireDistrict = Object.keys(fireDistricts).reduce((result, key) => {
+    if (fireDistricts[key].indexOf(capitalise(fireDistrict)) !== -1
+    || fireDistricts[key].indexOf(fireDistrict.toUpperCase()) !== -1) {
+      // eslint-disable-next-line no-param-reassign
+      result = key;
+    }
+    return result;
+  }, null);
+
+  // If states don't match, we can't find the fire districts
+  return state === stateByFireDistrict;
+}
+
 // Find matching fire district for council
 export function getFireDistrictFromCouncil(council, state) {
+  // If we have a fallback, see if we find a council from it
+  const fallback = fallbacks[state];
+  const fallbackCouncil = fallback && Object.keys(fallback).find(key => fallback[key].indexOf(council) !== -1);
+
+  // Find fire district form our location mapping
   const result = fireDistricts[state]
     .find(fireDistrict => councils[state][fireDistrict]
       .find(councilByDistrict =>
-        council.includes(councilByDistrict) || councilByDistrict.includes(council))
+        council.includes(councilByDistrict)
+          || councilByDistrict.includes(council)
+          || (fallbackCouncil && councilByDistrict.includes(fallbackCouncil))
+      )
     );
 
   return result || null;
-}
-
-// Try and find matching fire district for suburb
-export function getFireDistrictFromSuburb(suburb, state) {
-  const fallback = fallbacks[state];
-
-  if (!fallback) return null;
-
-  const council = Object.keys(fallback).find(key => fallback[key].indexOf(suburb) !== -1);
-  // No council found means we cannot find a matchin fire district
-  if (!council) return null;
-
-  const fireDistrict = getFireDistrictFromCouncil(council, state);
-
-  return fireDistrict;
 }
 
 /*
@@ -106,14 +119,12 @@ export function getFireDistrictFromSuburb(suburb, state) {
 * @return {String} result as JSON
 */
 export async function fetchData(state) {
-  const _state = state.toUpperCase();
-  const url = urlMapping[_state];
+  const url = urlMapping[state];
 
   if (!url) throw new Error('This state is currently not supported');
 
   const data = await fetch(url);
   const result = await data.text();
-
 
   // Some fire services offer JSON feed
   try {
@@ -123,7 +134,7 @@ export async function fetchData(state) {
   catch (e) {
     const parsed = await parseXml(result);
 
-    if (_state === 'ACT') return fetchFireDistricts[_state](parsed, _state);
+    //if (state === 'ACT') return fetchFireDistricts[state](parsed, state);
 
     return parsed;
   }
@@ -136,30 +147,16 @@ export async function fetchData(state) {
 * @return {String} result as JSON
 */
 export async function fetchFireDistrictData(fireDistrict, state) {
-  const _state = state.toUpperCase();
+  if (!canFindFireDistrict(fireDistrict, state)) throw new Error('Cannot find fire district.');
 
   // Special handling of ACT
-  if (_state === 'ACT') {
-    return await fetchData(state);
-  }
-
-  // Find state using fireDistrict
-  const stateByFireDistrict = Object.keys(fireDistricts).reduce((result, key) => {
-    if (fireDistricts[key].indexOf(capitalise(fireDistrict)) !== -1
-    || fireDistricts[key].indexOf(fireDistrict.toUpperCase()) !== -1) {
-      // eslint-disable-next-line no-param-reassign
-      result = key;
-    }
-    return result;
-  }, null);
-
-  // If states don't match, we can't find the fire districts
-  if (_state !== stateByFireDistrict) throw new Error('State is not matching fire district');
-
+  // if (_state === 'ACT') {
+  //   return await fetchData(state);
+  // }
   const data = await fetchData(state);
 
   // Use appropriate method, depending on the state
-  return fetchFireDistricts[_state](data, capitalise(fireDistrict));
+  return fetchFireDistricts[state](data, capitalise(fireDistrict));
 }
 
 /*
@@ -170,21 +167,19 @@ export async function fetchFireDistrictData(fireDistrict, state) {
 */
 export async function fetchSuburbData(suburb, state) {
   const council = await getCouncil(suburb, state);
-  const _state = state.toUpperCase();
 
   // Special handling of ACT
-  if (_state === 'ACT') {
-    return await fetchData(state);
-  }
+  // if (state === 'ACT') {
+  //   return await fetchData(state);
+  // }
 
   // Try and find fire district by council or suburb
-  const fireDistrict = getFireDistrictFromCouncil(council, _state)
-    || getFireDistrictFromSuburb(council, _state);
+  const fireDistrict = getFireDistrictFromCouncil(council, state)
 
   // If no fire district found, try to find it by suburb
   if (!fireDistrict) throw new Error('Could not find a fire district for your suburb.');
 
-  const fireDistrictData = await fetchFireDistrictData(fireDistrict.toLowerCase(), _state);
+  const fireDistrictData = await fetchFireDistrictData(fireDistrict.toLowerCase(), state);
 
-  return fetchSuburbs[_state](fireDistrictData, capitalise(fireDistrict), capitalise(suburb));
+  return fetchSuburbs[state](fireDistrictData, capitalise(fireDistrict), capitalise(suburb));
 }

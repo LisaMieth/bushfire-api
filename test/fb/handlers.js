@@ -39,7 +39,7 @@ describe('getCouncil', () => {
     it('should find council for actual suburbs', function (done) {
       this.timeout(15000);
       const suburbs = ['Mount Alexander', 'Baw Baw', 'French Island', 'Kevington', 'Yanac', 'Nareeb'];
-      const expectedResult = ['Mount Alexander', 'Baw Baw', 'French-Elizabeth-Sandstone Islands (Unincorporated)',
+      const expectedResult = ['Mount Alexander', 'Baw Baw', 'French Island',
         'Mansfield', 'Hindmarsh', 'Nareeb'];
 
       for (const suburb of suburbs) {
@@ -90,29 +90,8 @@ describe('getFireDistrictFromCouncil', () => {
     });
   });
 
-  it('should return undefined if district for council cannot be found', () => {
-    const councils = ['Bute', 'Paskeville', 'Owen', 'Bower', 'Marree'];
-
-    councils.forEach(council => {
-      const actual = getFireDistrictFromCouncil(council, 'SA');
-      expect(actual).toBe(null);
-    });
-  });
-});
-
-describe('getFireDistrictFromSuburb', () => {
-  it('should find fire district for suburb', () => {
-    const councils = ['Bute', 'Paskeville', 'Owen', 'Bower', 'Marree'];
-    const expected = ['Yorke Peninsula', 'Yorke Peninsula', 'Mid North', 'Mid North', 'North West Pastoral'];
-
-    councils.forEach((council, index) => {
-      const actual = getFireDistrictFromSuburb(council, 'SA');
-      expect(actual).toEqual(expected[index]);
-    });
-  });
-
-  it('should return undefined if no fire district can be found', () => {
-    const actual = getFireDistrictFromSuburb('randomStub', 'SA');
+  it('should return undefined if district cannot be found', () => {
+    const actual = getFireDistrictFromCouncil('randomStub', 'SA');
     expect(actual).toEqual(null);
   });
 });
